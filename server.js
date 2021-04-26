@@ -23,6 +23,9 @@ const db = mysql.createConnection(
 //   db.query(`SELECT * FROM candidates`, (err, rows) => {
 //       console.log(rows);
 //   })
+
+
+// GET a single candidate with ID of 1
 // db.query(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
 //     if (err) {
 //       console.log(err);
@@ -37,17 +40,18 @@ const db = mysql.createConnection(
 //     console.log(result);
 // });
 
-const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
-    VALUES (?,?,?,?)`;
-
+// Create a candidate
+const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected) 
+              VALUES (?,?,?,?)`;
 const params = [1, 'Ronald', 'Firbank', 1];
 
 db.query(sql, params, (err, result) => {
-    if(err) {
-        console.log(err);
-    }
-    console.log(result);
+  if (err) {
+    console.log(err);
+  }
+  console.log(result);
 });
+
 
 
 app.use((req, res) => {
